@@ -1,4 +1,4 @@
-## Fudo Challenge – Angelica Molero
+## Postea – Angelica Molero
 Este proyecto es una red social que llame Postea acotada desarrollada en React, como parte de un challenge técnico para la posición de Frontend Semi Senior Developer.
 
 ### Features
