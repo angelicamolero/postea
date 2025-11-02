@@ -10,6 +10,7 @@ import defaultPostImage from '../assets/post-placeholder.png'
 import PostActionsMenu from '../components/Posts/PostActionsMenu';
 import CommentList from '../components/Comment/CommentList';
 import PostForm from '../components/Posts/PostForm';
+import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner';
 
 const PostDetail = () => {
     const { postId } = useParams<{ postId: string }>()
@@ -38,7 +39,7 @@ const PostDetail = () => {
         }
     }
 
-    if (!post) return <p>Loading post...</p>
+    if (!post) return <LoadingSpinner fullPage={true} label="Cargando post.."/>
 
     return (
        <>
