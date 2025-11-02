@@ -5,15 +5,16 @@ import PostCard from './PostCard'
 import NewPost from './NewPost'
 import PostForm from './PostForm'
 import { Post } from '../../types'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 const PostList = () => {
     const {posts, loading, error, createPost} = usePosts()
     const [isFormOpen, setIsFormOpen] = useState(false)
     const [showToast, setShowToast] = useState(false)
 
-    if (loading.getAll) return <p>Cargando posts...</p>
-    if (error) return <p>Error al cargar los posts.</p>
-    if (!posts || posts.length === 0) return <p>No hay posts todavía.</p>
+    if (loading.getAll) return <LoadingSpinner fullPage={true}/>
+    if (error) return <p className={styles.errorLabel}>Error al cargar los posts.</p>
+    if (!posts || posts.length === 0) return <p className={styles.noPostLabel}>No hay posts todavía.</p>
 
    const handleCreatePost = async (data: Omit<Post, 'id' | 'createdAt'>) => {
         const postWithDate = {
